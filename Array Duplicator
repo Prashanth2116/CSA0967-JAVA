@@ -1,0 +1,39 @@
+import java.util.Scanner;
+
+public class ArrayDuplicator {
+    public static int[] duplicateZeroes(int[] arr) {
+        int count = 0;
+        for (int i = 0; i < arr.length; i++) {
+            if (arr[i] == 0) {
+                count++;
+            }
+        }
+        int[] newArr = new int[arr.length + count];
+        int j = 0;
+        for (int i = 0; i < arr.length; i++) {
+            newArr[j] = arr[i];
+            if (arr[i] == 0) {
+                j++;
+                newArr[j] = 0;
+            }
+            j++;
+        }
+        return newArr;
+    }
+
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+        System.out.print("Enter the size of the array: ");
+        int size = scanner.nextInt();
+        int[] arr = new int[size];
+        System.out.println("Enter the elements of the array: ");
+        for (int i = 0; i < size; i++) {
+            arr[i] = scanner.nextInt();
+        }
+        int[] newArr = duplicateZeroes(arr);
+        System.out.print("New Array: ");
+        for (int i : newArr) {
+            System.out.print(i + " ");
+        }
+    }
+}
