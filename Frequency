@@ -1,0 +1,19 @@
+import java.util.HashMap;
+
+public class Frequency {
+    public static void main(String[] args) {
+        int[] array = {1, 2, 3, 2, 1, 3, 1};
+
+        HashMap<Integer, Integer> frequency = new HashMap<>();
+
+        for (int i = 0; i < array.length; i++) {
+            if (frequency.containsKey(array[i])) {
+                frequency.put(array[i], frequency.get(array[i]) + 1);
+            } else {
+                frequency.put(array[i], 1);
+            }
+        }
+
+        System.out.println(frequency);
+    }
+}
