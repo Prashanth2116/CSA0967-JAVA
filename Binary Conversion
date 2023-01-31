@@ -1,0 +1,28 @@
+import java.util.Scanner;
+
+public class BinaryConversion {
+    public static void main(String[] args) {
+        Scanner scan = new Scanner(System.in);
+        System.out.print("Enter a binary number: ");
+        int binary = scan.nextInt();
+
+        int decimal = 0, i = 0;
+        while (binary != 0) {
+            int rem = binary % 10;
+            decimal += rem * Math.pow(2, i);
+            binary /= 10;
+            i++;
+        }
+
+        int octal = 0, j = 1;
+        while (decimal != 0) {
+            int rem = decimal % 8;
+            octal += rem * j;
+            decimal /= 8;
+            j *= 10;
+        }
+
+        System.out.println("Decimal: " + decimal);
+        System.out.println("Octal: " + octal);
+    }
+}
